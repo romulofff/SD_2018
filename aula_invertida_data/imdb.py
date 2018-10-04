@@ -98,7 +98,7 @@ filmes = json.dumps(IMDB)
 # Questão 2:
 import socket
 
-HOST, PORT = '127.0.0.1', 6661
+HOST, PORT = '127.0.0.1', 6665
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 orig = (HOST, PORT)
 
@@ -119,5 +119,4 @@ while True:
                 pass
         break    
     print("Finalizando conexão do cliente ", cliente)
-    break
-con.close()
+    con.close()
