@@ -1,5 +1,7 @@
 import time
 import paho.mqtt.client as paho
+import random
+import decimal
 
 broker="mosquitto.org"
 broker="localhost"
@@ -13,7 +15,9 @@ print("Enviando temperatura a cada 5 segundos.")
 
 try:
     while (True):
-        client.publish("/Temperatura/Quarto","24°C")#publish
+        temp = random.uniform(22.0, 25.0)
+        temp = decimal.Decimal(temp).quantize(decimal.Decimal('.01'))
+        client.publish("/Temperatura/Quarto",str(temp)+'°C')#publish
         time.sleep(2.5)
 except KeyboardInterrupt:
     print("\nDesconectado.")
